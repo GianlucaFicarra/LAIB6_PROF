@@ -1,0 +1,26 @@
+Impostazione della ricorsione:
+
+- Soluzione: Sequenza (List) di 15 città
+[ Torino, Milano, Torino, Torino, ... ]
+in cui gli elementi della lista rappresentano la città visitata in ciascuno
+dei primi 15 giorni del mese
+purché rispetti le regole sulla permanenza minima e massima
+
+- Soluzione parziale: sequenza di livello <= 15 città
+- Soluzione totale: sequenza completa di 15 elementi
+
+- Livello della ricorsione: un giorno del calendario
+
+- Condizione di terminazione: livello==15
+
+- Come generare nuove soluzioni?
+	- Provo ad aggiungere tutte leCitta
+	- purché rispettino i vincoli:
+		- la città che sto aggiungendo non sia la settima complessiva
+		- se sto cambiando città, in quella precedente devo esserci rimasto >=3 giorni consecutivi
+
+- Cosa fare quando ho trovato una soluzione completa?
+	- calcola il "costo" relativo a questa soluzione (sum(umidita)+ 100*n_spostamenti)
+	- confronta questo costo con quello della soluzione migliore trovata finora
+		- se è minore, salva questa soluzione come la migliore
+	- in ogni caso, continua la ricerca
